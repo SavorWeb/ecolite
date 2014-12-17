@@ -1,0 +1,24 @@
+// ------------------------------------------------------------
+// Global typography
+// ------------------------------------------------------------
+
+@import url("http://fonts.googleapis.com/css?family=Titillium+Web:400,600,700");
+
+// ------------------------------------------------------------
+// Fonts
+// ------------------------------------------------------------
+
+.font-body 					{  font-family: 'Titillium Web', sans-serif;}
+.sans 					{  font-family: 'Titillium Web', sans-serif; }
+
+
+// ------------------------------------------------------------
+// Core typography
+// ------------------------------------------------------------
+
+p, span, cite, ol, ul, pre, label, input, textarea 	{ @include adjust-font-size-to($para); }
+ul 													{ @include nobullet; } 						
+ol 													{ @include nobullet; }	
+li 													{ line-height: inherit; }					
+strong, b 											{ font-weight: 700; }
+em, i, q 											{ font-style: italic; }

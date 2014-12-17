@@ -1,0 +1,629 @@
+// ::Imports pre-render. Must be after reset
+// ------------------------------------------------------------
+@import "libs/required";
+@import "libs/reset";
+@import "libs/settings";
+@import "libs/mixins";
+@import "libs/placeholders";
+
+// Transformicon Color:
+$navicon-color: $pos;
+
+// Use SASS globbing to import all _.scss files in the module folder.
+// These should be independent modules that follow the BEM/SMACSS way
+@import "modules/*"; 
+
+
+
+/* ::Base styles */
+/* ------------------------------------------------------------ */
+
+html {
+	font-size: 100%;
+	@include break-max(768px, $IE9: false) { // Stop at precise width, as we're talking about devices
+		-webkit-text-size-adjust: 100%;	// Stops text scaling in iOS.
+	}
+}
+
+body {
+	@extend .font-body;
+	background: $body-color;
+	color: $base-color;
+	background-image: url("../img/grid-tex.png");
+}
+
+a {
+	color: $action;
+	text-decoration: none;
+	@include link-active-styles { 	// Mixin for interactions (hover,focus,active)
+		color: $action-respond;
+	}
+	&:not(>img) {
+		@include force-wrap;
+	}
+}
+
+// ------------------------------------------------------------
+// Navigation module
+// ------------------------------------------------------------
+
+// Place your BEM/SMACSS style .scss modules in the modules folder
+
+nav {
+	padding-top: 15px;
+
+}
+
+.logo {
+	float: left;
+	max-width: 100px;
+	img {
+		width: 100%;
+	}
+	@include break($d) {
+		max-width: 150px;
+	}
+}
+
+.btn {
+	border-width: 4px;
+	border-style: double;
+	display: inline-block;
+	padding: 5px 10px;
+	border-color: $color1;
+	color: $color1;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	&:hover {
+		border-style: solid;
+		border-width: 4px !important;
+			color: $color1;
+	}
+}
+
+.getquote {
+	float: right;
+	text-align: center;
+	color: $pos;
+	.btn {
+		border-color: $pos;
+		display: block;
+		color: $pos;
+		@include break($d) {
+			margin-top: 15px;
+			padding: 10px 20px;
+		}
+	}
+	.orCall {
+		opacity: 0.5;
+	}
+}
+
+.fade {
+background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0)));
+background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 );
+
+
+}
+
+.typeset {
+	a {
+		&:hover {
+			border-bottom: 1px solid $color1;
+		}
+	}
+	ul, ol {
+		margin-left: 15px;
+	}
+
+	img {
+		max-width: 100%;
+		height: auto;
+		margin-bottom: 15px;
+		@include break($b) {
+			margin: 0 0 30px 0;
+			clear: both;
+			width: 100%;
+		}
+	}
+	.full-width {
+		margin: 0 0 30px 0;
+		clear: both;
+		width: 100%;
+	}
+	.right {
+
+		@include break($b) {
+			float: right;
+			margin: 0 0 15px 30px;
+			width: 40%;
+		}
+	}
+	.left {
+		@include break($b) {
+			float: left;
+			margin: 0 30px 15px 0;
+			width: 40%;
+		}
+	}
+
+	blockquote {
+		padding: 5%;
+		clear: both;
+		background-color: $color2;
+		color: $pos;
+		@include break($b) {
+			clear: none;
+			float: right;
+		}
+		p {
+			&:before {
+				content: "“ ";
+			}
+			&:after {
+				content: " ”";	
+			}
+		}
+		i {
+			font-size: em-font(10px);
+		}
+	}
+	figure {
+		position: relative;
+		img {
+			width: 100%;
+			margin: 0;
+			margin-bottom: -4px;
+		}
+	}
+}
+
+#contact-us {
+	padding-top: 50px;
+}
+
+.logomark {
+	width: 100px;
+	float: left;
+	position: relative;
+	
+	a {
+		display: block;
+    	padding: 5px;
+    	padding-right: 7px;
+	}
+	img {
+		max-width: 100%;
+	}
+}
+
+.banner {
+    @extend .striped;
+    width: 100%;
+    color: #fff;
+    position: relative;
+    z-index: 100;
+    display: none;
+    border-bottom: 2px solid $pos;
+    font-size: $s9;
+    .social-links {
+    	float: right;
+    }
+    @include break($d) {
+    	display: block;
+    }
+    .row {
+    	padding-top: 0;
+    	padding-bottom: 0; 
+    }
+    ul {
+    	float: left;
+    	border-left: 1px solid #fff;
+    	margin-left: 8px;
+    	li {
+    		float: left;
+    	
+    	}
+    }
+
+}
+    .banner li a {
+    	display: block;
+    	text-transform: uppercase;
+        color: #fff;
+        padding: 24px;
+    }
+    .banner a:hover {
+        background-color: transparentize($neg, 0.6);
+    }
+
+
+
+.banner--clone {
+
+    /* Required styles */
+    position: fixed;
+    top: 0;
+    left: 0;
+
+
+
+    /* Translate -100% to move off screen */
+    -webkit-transform: translateY(-100%);
+        -ms-transform: translateY(-100%);
+            transform: translateY(-100%);
+
+    /* Animations */
+    -webkit-transition: all 300ms ease-in-out;
+       -moz-transition: all 300ms ease-in-out;
+            transition: all 300ms ease-in-out;
+
+}
+
+.banner--stick {
+
+    /* Translate back to 0%; */
+    -webkit-transform: translateY(0%);
+        -ms-transform: translateY(0%);
+            transform: translateY(0%);
+}
+
+////////////
+// LAYOUT //
+////////////
+
+.row.typeset {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.welcome {
+	color: $pos;
+	// width: 75%;
+	margin-top: 25px;
+	a {
+		color: $pos;
+		border-bottom: 1px solid $pos;
+	}
+	@include break($d) {
+		margin-top: 50px;
+		a {
+			border-bottom: 0 solid $pos;
+		}
+	}
+}
+
+.hero-headline {
+	font-size: $s3;
+	line-height: $s3;
+	text-transform: uppercase;
+	font-weight: 100;
+	color: $color2;
+	text-shadow: 0 0 25px #fff;
+	span {
+		font-size: $s3;
+		line-height: $s3;
+		color: $color1;
+	}
+	@include break($c) {
+		font-size: $s2;
+		line-height: $s2;
+		span {
+			font-size: $s2;
+			line-height: $s2;
+			display: block;
+			clear: both;
+		}
+	}
+	@include break($d) {
+		font-size: $hero;
+		line-height: $hero;
+		span {
+			font-size: $hero;
+			line-height: $hero;
+		}
+	}
+	b {
+		text-decoration: underline;
+		font-weight: bold;
+	}
+}
+
+.hero-sub {
+	margin-top: 15px;
+	width: 75%;
+	opacity: 0.5;
+}
+
+.typeset ul.acc {
+	margin-left: 0;
+	li {
+		background-color: lighten($color2, 15%);
+	}
+}
+
+.acc li {
+	list-style-type: none;
+}
+
+.acc li .acc-head {
+	cursor: pointer;
+	position: relative;
+	padding: 20px;
+}
+
+.acc li .acc-head i {
+	position: absolute;
+	top: 22px;
+	right: 15px;
+}
+
+.acc-panel {
+	padding: 0px 20px 10px;
+}
+
+.products {
+	margin-bottom: 35px;
+}
+
+.description {
+
+}
+
+.pagefoot {
+	background-color: $color2;
+	margin-top: 50px;
+	padding: 15px 0;
+	color: $pos;
+	text-align: right;
+	.social-links {
+		float: left;
+	}
+}
+
+.awning {
+	background-image: url("../img/home-img.jpg");
+	background-repeat: repeat-x;
+	background-position: 0px 0px;
+	height: 360px;
+	@include break($d) {
+	background-image: url("../img/home-img.jpg");
+		height: 475px;
+	}
+
+	.social-links {
+		float: right;
+		margin-top: 28px;
+		margin-right: 15px;
+		display: none;
+		@include break($c) {
+			display: block;
+		}
+	}
+}
+
+.ftg-filters {
+	text-transform: uppercase;
+	color: $neg;
+	font-size: $s10;
+}
+
+.call-out {
+	background-color: $color1;
+	padding: 50px 0;
+	color: $pos;
+	text-align: left;
+	&.endcap {
+		margin: 0;
+	}
+	blockquote {
+		
+		font-size: $s7;
+		line-height: $s7 + 15;
+		&.extra {
+			font-size: $s8;
+			line-height: $s8 + 15;
+		}
+	}
+	i {
+		display: block;
+		margin-top: 12px;
+		font-size: $s10;	
+	}
+	@include break($d) {
+		blockquote {
+			font-size: $s4;
+			line-height: $s4 + 15;
+			&.extra {
+				font-size: $s7;
+				line-height: $s7 + 15;
+				padding: 0px 25px;
+			}
+		}
+		i {
+			font-size: $s10;	
+		}
+	}
+}
+
+.striped {
+	background-image: url("../img/stripe.png");
+	background-repeat: repeat;
+	background-position: 0px 0px;
+	&:hover {
+		animation: aniBtn 5s linear infinite;
+		-moz-animation: aniBtn 5s linear infinite;
+		-webkit-animation: aniBtn 5s linear infinite;
+		-ms-animation: aniBtn 5s linear infinite;
+		-o-animation: aniBtn 5s linear infinite;
+	}
+}
+
+.about-us {
+	margin-top: 50px;
+}
+.our-features {
+	margin-top: 25px;
+	bottom: 15px;
+}
+.brand-names {
+	margin-bottom: 50px;
+	@include break($c) {
+		margin-bottom: 170px;
+		margin-top: 50px;
+	}
+	@include break($d) {
+
+	}
+	img {
+		max-width: 100%;
+	}
+}
+
+.map {
+	background-image: url("../img/servicearea.jpg");
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-attachment: scroll;
+	background-position: center;
+	overflow: hidden;
+
+	min-height: 350px;
+	position: relative;
+	margin-bottom: 30px;
+	background-repeat: no-repeat;
+
+	.service-areas {
+		padding: 20px;
+		max-width: 400px;
+		position: relative;
+		h1, h2, h3, h4, h5, h6 {
+			color: $pos;
+		}
+		background-color: transparentize($color2, 0.2);
+		float: right;
+		margin-bottom: 45px;
+		color: $pos;
+		top: 20px;
+		@include break($d) {
+			top: 120px;
+		}
+	}
+
+	@include break($b) {
+	min-height: 400px;
+		
+	}
+	@include break($d) {
+		min-height: 550px;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+		background-attachment: scroll;
+		background-position: center;
+	}
+}
+
+.is-cms .remodal-overlay {
+	opacity: 1 !important;
+	display: block !important;
+	position: static !important;
+}
+
+.is-cms #gallery-items li {
+	float: left;
+	width: 20%;
+	margin-bottom: 10px;
+	margin-right: 10px;
+	img {
+		width: 100%;
+	}
+}
+
+.half-col {
+	width: 100%;
+	@include break($c) {
+		width: 50%;
+		&.dual-list {
+			width: 46%;
+		}
+	}
+	li {
+		margin: 0 !important;
+	}
+}
+
+.to-right {
+	float: right;
+}
+
+.next-prev {
+
+	.next, .prev {
+		display: none;
+		@include break($b) {
+			display: inline-block;
+		}
+		font-size: em-font(40px);
+		color: $color1;
+		font-weight: bold;
+		text-shadow: 0 0 10px $pos;
+		margin: 0;
+		&:hover {
+			color: lighten($color1, 10%);
+		}
+	}
+}
+
+#products, #portfolio, #about {
+	padding-top: 100px;
+}
+
+#about {
+	padding-bottom: 15px;
+}
+
+.social-links {
+	li {
+		float: left;
+		margin-right: 10px;
+		a {
+			display: block;
+			border-radius: 100px;
+			&:hover {
+				background-color: lighten($color2, 25%);
+			}
+			img {
+				width: 20px;
+				margin-bottom: -4px;
+			}
+		}
+	}
+}
+
+/* ::Import styles */
+/* ------------------------------------------------------------ */
+
+@import "libs/typography"; 					// Base level typography
+@import "libs/forms";						// Forms
+@import "add-ons/module-typeset"; 			// Specific typesetting
+@import "add-ons/grid"; 					// Grid system
+
+
+/* ::Print */
+/* ------------------------------------------------------------ */
+
+@media print {
+	body {
+		@include adjust-leading-to(2);
+		font-size: percentage(10 / 16);
+	}
+}
