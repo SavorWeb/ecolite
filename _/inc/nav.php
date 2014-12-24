@@ -1,4 +1,4 @@
-<div class="awning">
+<div class="hero-img">
 	<div class="row">
 		<nav class="clearfix">
 			<div class="logo">

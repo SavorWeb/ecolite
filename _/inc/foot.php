@@ -3,15 +3,10 @@
 	<div id="contact-area" class="editable typeset colspan12-3 colspan6-2 colspan2-2 as-grid">
 		<h4>Contact Us</h4>
 		<p>
-			<b>Vestis Systems</b> <br>
-			16124 E. Euclid Ave. <br>
-			Spokane WA 99216 <br>
-<br>
-			Phone: (509) 892-6180 <br>
-			Fax: (509) 892-6641 <br>
-<br>
-			Email Contacts: <br>
-			<a href="#">Ryan Lipsker</a>
+			<b>Ecolite</b> <br>
+			Toll Free: 800.755.0555 <br>
+			Local: 509.922.8888 <br>
+			Fax: 509.922.8866
 		</p>
 	</div>
 	<div id="get-quote" class="typeset colspan12-9 colspan6-4 colspan2-2 as-grid with-gutter">

@@ -16,7 +16,7 @@
 // Core typography
 // ------------------------------------------------------------
 
-p, span, cite, ol, ul, pre, label, input, textarea 	{ @include adjust-font-size-to($para); }
+p, cite, ol, ul, pre, label, input, textarea 	{ @include adjust-font-size-to($para); }
 ul 													{ @include nobullet; } 						
 ol 													{ @include nobullet; }	
 li 													{ line-height: inherit; }					
