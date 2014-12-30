@@ -11,6 +11,9 @@
 .nav-collapse li {
   width: 100%;
   display: block;
+  @include break($d) {
+    width: auto;
+  }
 }
 
 .js .nav-collapse {
@@ -51,3 +54,101 @@
     display: none;
   }
 }
+
+
+  #nav-toggle {
+    float: right;
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 0px;
+    margin-top: -9px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 0;
+    @include break($d) {
+      display: none;
+    }
+  }
+
+  .nav-collapse {
+    text-transform: uppercase;
+    @include clearfix;
+    background-color: transparentize($neg, 0.5);
+    top: 10px;
+    clear: both;
+    text-align: center;
+    z-index: 999;
+    position: relative;
+    font-weight: lighter;
+    font-size: $s4;
+    padding-bottom: 0px;
+    position: relative;
+    margin: 0 -500%;
+    padding: 0 500%;
+    @include break($d) {
+      // width: 75%;
+      margin: 5px 0 0;
+      padding: 0;
+      font-size: $s9;
+      top: -12px;
+      clear: none;
+      background-color: transparent;
+      float: right;
+      padding-bottom: 0;
+      //height: 60px;
+      // clear: both;
+      // margin: 0 -500%;
+        //padding: 0 500%;
+    }
+    ul {
+      @include clearfix;
+      margin: 0; // cancel out global ul li style
+      padding-top: 20px;
+      padding-bottom: 20px;
+      @include break($d) {
+        width: 100%;
+        padding: 0;
+        float: left;
+        clear: none;
+      }
+
+      li {
+        float: right;
+        width: 50%;
+        margin: 0;
+        list-style-type: none;
+
+        @include break($d) {
+          //width: auto;
+          margin: 0 1.5%;
+        }
+
+        a {
+
+          @extend .sans;
+          font-size: em-font(19px);
+          display: inline-block;
+          width: 100%;
+          color: $pos;
+          padding: 20px 12px 15px;
+          background-color: transparent;
+          border-bottom: transparent 2px solid;
+
+          transition: background-color 0.2s ease-in-out;
+          -moz-transition: background-color 0.2s ease-in-out;
+          -webkit-transition: background-color 0.2s ease-in-out;
+
+          &:hover, &:active {
+            background-color: $color1;
+          }
+          @include break($d) {
+            padding: 0;
+            @include action {
+              background-color: transparent;
+              border-bottom: $color1 2px solid;
+            }
+          }
+        }
+      }
+    }
+  }

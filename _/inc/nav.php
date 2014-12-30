@@ -5,7 +5,9 @@
 				<img src="_/img/logo.png" alt="">
 			</div>
 
-			<ul>
+	<button type="button" role="button" id="nav-toggle" class="lines-button x2"><span class="lines"></span></button>
+
+			<ul class="nav-collapse">
 				<li><a data-scroll href="#top">About</a></li>
 				<li><a data-scroll href="#process">Process</a></li>
 				<li><a data-scroll href="#history">History</a></li>

@@ -51,14 +51,21 @@ a {
 
 nav {
 	padding-top: 15px;
+
 	ul {
-		float: right;
 		li {
-			float: left;
-			margin-left: 15px;
 			a {
 				text-transform: uppercase;
 				color: $pos;
+				padding: 10px;
+display: block;
+			}
+		}
+		@include break($d) {
+			float: right;
+			li {
+				float: left;
+				margin-left: 15px;
 			}
 		}
 	}
@@ -293,7 +300,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 .welcome {
 	color: $pos;
 	// width: 75%;
-	margin-top: 50px;
+	top: 133px;
+	position: absolute;
 	a {
 		color: $pos;
 		border-bottom: 1px solid $pos;
@@ -307,15 +315,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 }
 
 .hero-headline {
-	font-size: $s3;
-	line-height: $s3;
+	font-size: $s4;
+	line-height: $s4;
 	font-weight: 100;
 	color: $color2;
 	text-shadow: 0 0 25px #fff;
 	span {
-		font-size: $s3;
-		line-height: $s3;
+		font-size: $s4;
+		line-height: $s4;
 		color: $color1;
+		display: block;
+		clear: both;
 	}
 	@include break($c) {
 		font-size: $s2;
@@ -401,26 +411,29 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 }
 
 .hero-img {
-	background-image:url("../img/nav-img.png"), url("../img/home-img.jpg");
-	background-repeat: no-repeat, no-repeat;
+		background-image:url("../img/nav-img.png"), url("../img/home-img.jpg");
+	
+	background-repeat: no-repeat;
 	-webkit-background-size: 1300px, cover;
 	-moz-background-size: 1300px, cover;
 	-o-background-size: 1300px, cover;
 	background-size: 1300px, cover;
 	//max-width: 1500px;
 	margin: 0 auto;
-	background-position: top center, 0px 0px;
+	background-position: -300px 0px, 0px 0px;
 	height: 360px;
 	position: relative;
 
 	@include break($c) {
-		-webkit-background-size: 1500px, cover;
-		-moz-background-size: 1500px, cover;
-		-o-background-size: 1500px, cover;
-		background-size: 1500px, cover;
+	background-repeat: no-repeat, no-repeat;
+	-webkit-background-size: 1500px, cover;
+	-moz-background-size: 1500px, cover;
+	-o-background-size: 1500px, cover;
+	background-size: 1500px, cover;
 	}
 
 	@include break($d) {
+		background-position: center top, 0px 0px;
 		height: 475px;
 		-webkit-background-size: 1800px, cover;
 		-moz-background-size: 1800px, cover;
